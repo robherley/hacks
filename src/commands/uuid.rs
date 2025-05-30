@@ -1,7 +1,7 @@
 use anyhow::{anyhow, Result};
 use uuid::{Uuid, Version};
 
-pub fn generate(version: Option<u8>) -> Result<()> {
+pub fn new(version: Option<u8>) -> Result<()> {
     let uuid = match version.unwrap_or(7) {
         1 => Uuid::now_v1(&[1, 2, 3, 4, 5, 6]),
         4 => Uuid::new_v4(),

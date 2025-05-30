@@ -50,7 +50,7 @@ enum IpCommands {
 #[derive(Subcommand)]
 enum UuidCommands {
     /// Generate a UUID
-    Generate {
+    New {
         /// UUID version to generate (1, 4, or 7)
         #[arg(short, long, value_parser = clap::value_parser!(u8).range(1..=7))]
         version: Option<u8>,
@@ -78,7 +78,7 @@ async fn main() -> Result<()> {
             IpCommands::Internal => commands::ip::internal(),
         },
         Commands::Uuid { command } => match command {
-            UuidCommands::Generate { version } => commands::uuid::generate(version),
+            UuidCommands::New { version } => commands::uuid::new(version),
             UuidCommands::Info { uuid } => commands::uuid::info(&uuid),
         },
         Commands::Msgpack { command } => match command {
