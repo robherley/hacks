@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 description = "CLI full of hacks that make my life easier"
 license = "MIT"
-authors = ["Rob Herley <rob@herley.dev>"]
+authors = ["Rob Herley <me@reb.gg>"]
 
 [[bin]]
 name = "hacks"
