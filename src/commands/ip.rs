@@ -6,14 +6,14 @@ pub async fn external() -> Result<()> {
         .await?
         .text()
         .await?;
-    
+
     println!("{}", response.trim());
     Ok(())
 }
 
 pub fn internal() -> Result<()> {
     let interfaces = get_if_addrs()?;
-    
+
     for interface in interfaces {
         if !interface.is_loopback() {
             match interface.addr {
@@ -22,6 +22,6 @@ pub fn internal() -> Result<()> {
             }
         }
     }
-    
+
     Ok(())
 }
